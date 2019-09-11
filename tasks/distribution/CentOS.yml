@@ -1,0 +1,9 @@
+---
+# tasks file for arillso.repositories
+
+- name: include subtasks repository
+  include_tasks: 'subtasks/rpm.yml'
+  loop_control:
+    loop_var: loop_repository
+  loop: "{{ repositories['centos'] }}"
+  when: repositories['centos'] | default(false)
