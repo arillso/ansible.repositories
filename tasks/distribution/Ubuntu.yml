@@ -1,0 +1,9 @@
+---
+# tasks file for arillso.repositories
+
+- name: include subtasks repository
+  include_tasks: 'subtasks/apt.yml'
+  loop_control:
+    loop_var: loop_repository
+  loop: "{{ repositories['ubuntu'] }}"
+  when: repositories['ubuntu'] | default(false)

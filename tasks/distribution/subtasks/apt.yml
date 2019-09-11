@@ -1,0 +1,13 @@
+---
+# tasks file for arillso.repositories
+
+- name: 'apt : add repo {{ loop_repository.name }}'
+  become: true
+  apt_repository:
+    codename: '{{ loop_repository.codename | default(omit) }}'
+    repo: '{{ loop_repository.repo }}'
+    state: '{{ loop_repository.state | default(omit) }}'
+    filename: "{{ loop_repository.name | lower | replace(' ','-') }}"
+    mode: '{{ loop_repository.mode | default(omit) }}'
+    update_cache: '{{ loop_repository.update_cache | default(omit) }}'
+    validate_certs: '{{ loop_repository.update_cache | default(omit) }}'
