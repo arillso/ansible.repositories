@@ -12,8 +12,10 @@
     attributes: '{{ loop_repository.attributes | default(omit) }}'
     bandwidth: '{{ loop_repository.bandwidth | default(omit) }}'
     cost: '{{ loop_repository.cost | default(omit) }}'
-    deltarpm_metadata_percentage: '{{ loop_repository.deltarpm_metadata_percentage | default(omit) }}'
-    deltarpm_percentage: '{{ loop_repository.deltarpm_percentage | default(omit) }}'
+    deltarpm_metadata_percentage: >
+      '{{ loop_repository.deltarpm_metadata_percentage | default(omit) }}'
+    deltarpm_percentage: >
+      '{{ loop_repository.deltarpm_percentage | default(omit) }}'
     enabled: '{{ loop_repository.enabled | default(omit) }}'
     enablegroups: '{{ loop_repository.enablegroups | default(omit) }}'
     exclude: '{{ loop_repository.exclude | default(omit) }}'
@@ -30,7 +32,8 @@
     keepalive: '{{ loop_repository.keepalive | default(omit) }}'
     keepcache: '{{ loop_repository.keepcache | default(omit) }}'
     metadata_expire: '{{ loop_repository.metadata_expire | default(omit) }}'
-    metadata_expire_filter: '{{ loop_repository.metadata_expire_filter | default(omit) }}'
+    metadata_expire_filter: >
+      '{{ loop_repository.metadata_expire_filter | default(omit) }}'
     metalink: '{{ loop_repository.metalink | default(omit) }}'
     mirrorlist: '{{ loop_repository.mirrorlist | default(omit) }}'
     mirrorlist_expire: '{{ loop_repository.mirrorlist_expire | default(omit) }}'
@@ -50,8 +53,10 @@
     serole: '{{ loop_repository.serole | default(omit) }}'
     setype: '{{ loop_repository.setype | default(omit) }}'
     seuser: '{{ loop_repository.seuser | default(omit) }}'
-    skip_if_unavailable: '{{ loop_repository.skip_if_unavailable | default(omit) }}'
-    ssl_check_cert_permissions: '{{ loop_repository.ssl_check_cert_permissions | default(omit) }}'
+    skip_if_unavailable: >
+      '{{ loop_repository.skip_if_unavailable | default(omit) }}'
+    ssl_check_cert_permissions: >
+      '{{ loop_repository.ssl_check_cert_permissions | default(omit) }}'
     sslcacert: '{{ loop_repository.sslcacert | default(omit) }}'
     sslclientcert: '{{ loop_repository.sslclientcert | default(omit) }}'
     sslclientkey: '{{ loop_repository.sslclientkey | default(omit) }}'

@@ -39,10 +39,10 @@ The centos keys correspond to the parament of the yum repostory module and rpm k
 
 The following parameters are required:
 
-| Option  | Comments                                                                   |
-| :------ | :------------------------------------------------------------------------- |
-| name    | Sets the name of the baseurl                                               |
-| baseurl | URL to the directory where the yum repository's 'repodata' directory lives |
+| Option  | Comments                                                            |
+| :------ | :------------------------------------------------------------------ |
+| name    | Sets the name of the baseurl                                        |
+| baseurl | URL to directory where yum repository's 'repodata' directory lives. |
 
 ### defaults
 
@@ -50,23 +50,32 @@ The following parameters are required:
 repositories:
   ubuntu:
     - name: 'ubuntu universe'
-      repo: 'deb http://archive.ubuntu.com/ubuntu {{ ansible_distribution_release | lower }} universe'
+      repo: >
+        'deb http://archive.ubuntu.com/ubuntu
+         {{ ansible_distribution_release | lower }} universe'
       state: present
     - name: 'ubuntu universe'
-      repo: 'deb http://archive.ubuntu.com/ubuntu {{ ansible_distribution_release | lower }}-security universe'
+      repo: >
+        'deb http://archive.ubuntu.com/ubuntu
+         {{ ansible_distribution_release | lower }}-security universe'
       state: present
     - name: 'ubuntu universe'
-      repo: 'deb http://archive.ubuntu.com/ubuntu {{ ansible_distribution_release | lower }}-updates universe'
+      repo: >
+        'deb http://archive.ubuntu.com/ubuntu
+         {{ ansible_distribution_release | lower }}-updates universe'
       state: present
   centos:
     - name: 'epel'
       state: present
       description: 'EPEL YUM repo'
-      baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
+      baseurl: >
+        https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
       key: https://download.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7
 ```
 
 ## Dependencies
+
+None
 
 ## Example Playbook
 
@@ -82,8 +91,8 @@ repositories:
 
 ## License
 
-This project is under the MIT License. See the [LICENSE](https://sbaerlo.ch/licence) file for the full license text.
+This project is under the MIT License. See the [LICENSE](licence) file for the full license text.
 
 ## Copyright
 
-(c) 2019, Arillso
+(c) 2020, Arillso
