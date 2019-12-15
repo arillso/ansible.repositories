@@ -56,7 +56,7 @@
     skip_if_unavailable: >
       '{{ loop_repository.skip_if_unavailable | default(omit) }}'
     ssl_check_cert_permissions: >
-      '{{ loop_repository.ssl_check_cert_permissions | default(omit) }}'
+      '{{ loop_repository.ssl_check_cert_permissions | default(true) }}'
     sslcacert: '{{ loop_repository.sslcacert | default(omit) }}'
     sslclientcert: '{{ loop_repository.sslclientcert | default(omit) }}'
     sslclientkey: '{{ loop_repository.sslclientkey | default(omit) }}'
