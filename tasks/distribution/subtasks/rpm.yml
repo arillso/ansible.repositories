@@ -4,10 +4,10 @@
 - name: 'rpm : add repo {{ loop_repository.name }}'
   become: true
   yum_repository:
-    state: '{{ loop_repository.state }}'
+    state: '{{ loop_repository.state | default(omit) }}'
     name: '{{ loop_repository.name }}'
-    description: '{{ loop_repository.description }}'
-    baseurl: '{{ loop_repository.baseurl }}'
+    description: '{{ loop_repository.description | default(omit) }}'
+    baseurl: '{{ loop_repository.baseurl | default(omit) }}'
     async: '{{ loop_repository.async | default(omit) }}'
     attributes: '{{ loop_repository.attributes | default(omit) }}'
     bandwidth: '{{ loop_repository.bandwidth | default(omit) }}'
@@ -68,3 +68,4 @@
     state: '{{ loop_repository.state | default(omit) }}'
     key: '{{ loop_repository.key }}'
     validate_certs: '{{ loop_repository.validate_certs | default(omit) }}'
+  when: loop_repository.key is defined

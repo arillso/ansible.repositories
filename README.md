@@ -24,7 +24,7 @@ Repositories is a list of repositories that should be added to a system, but the
 
 #### ubuntu
 
-The ubuntu keys correspond to the parament of the apt repostory module, See: [apt_repository](https://docs.ansible.com/ansible/latest/modules/apt_repository_module.html)
+The ubuntu keys correspond to the parameter of the apt repostory module, See: [apt_repository](https://docs.ansible.com/ansible/latest/modules/apt_repository_module.html).
 
 The following parameters are required:
 
@@ -35,14 +35,17 @@ The following parameters are required:
 
 #### centos
 
-The centos keys correspond to the parament of the yum repostory module and rpm key, See: [yum_repository](https://docs.ansible.com/ansible/latest/modules/yum_repository_module.html) and [rpm_key](https://docs.ansible.com/ansible/latest/modules/rpm_key_module.html)
+The centos keys correspond to the parameter of the yum repostory module and rpm key, See: [yum_repository](https://docs.ansible.com/ansible/latest/modules/yum_repository_module.html) and [rpm_key](https://docs.ansible.com/ansible/latest/modules/rpm_key_module.html).
 
-The following parameters are required:
+The following parameters are required when creating a repository:
 
-| Option  | Comments                                                                   |
-| :------ | :------------------------------------------------------------------------- |
-| name    | Sets the name of the baseurl                                               |
-| baseurl | URL to the directory where the yum repository's 'repodata' directory lives |
+| Option      | Comments                                                                   |
+| :---------- | :------------------------------------------------------------------------- |
+| name        | Sets the name of the baseurl                                               |
+| description | Sets the description of the repo                                           |
+| baseurl     | URL to the directory where the yum repository's 'repodata' directory lives |
+
+The parameter *baseurl* can be replaced with the parameters *metalink* or *mirrorlist*.
 
 ### defaults
 
@@ -51,16 +54,12 @@ repositories:
   ubuntu:
     - name: 'ubuntu universe'
       repo: 'deb http://archive.ubuntu.com/ubuntu {{ ansible_distribution_release | lower }} universe'
-      state: present
     - name: 'ubuntu universe'
       repo: 'deb http://archive.ubuntu.com/ubuntu {{ ansible_distribution_release | lower }}-security universe'
-      state: present
     - name: 'ubuntu universe'
       repo: 'deb http://archive.ubuntu.com/ubuntu {{ ansible_distribution_release | lower }}-updates universe'
-      state: present
   centos:
     - name: 'epel'
-      state: present
       description: 'EPEL YUM repo'
       baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
       key: https://download.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7
@@ -82,8 +81,9 @@ repositories:
 
 ## License
 
-This project is under the MIT License. See the [LICENSE](licence) file for the full license text.
+This project is under the MIT License. See the [LICENSE](https://sbaerlo.ch/licence) file for the full license text.
 
 ## Copyright
 
-(c) 2020, Arillso
+(c) 2019, Arillso
+...
