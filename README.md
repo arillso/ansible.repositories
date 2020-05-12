@@ -45,7 +45,7 @@ The following parameters are required when creating a repository:
 | description | Sets the description of the repo                                           |
 | baseurl     | URL to the directory where the yum repository's 'repodata' directory lives |
 
-The parameter *baseurl* can be replaced with the parameters *metalink* or *mirrorlist*.
+The parameter _baseurl_ can be replaced with the parameters _metalink_ or _mirrorlist_.
 
 ### defaults
 
@@ -85,5 +85,5 @@ This project is under the MIT License. See the [LICENSE](https://sbaerlo.ch/lice
 
 ## Copyright
 
-(c) 2019, Arillso
+(c) 2020, Arillso
 ...
